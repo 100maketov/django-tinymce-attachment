@@ -9,6 +9,6 @@ class ImagePreviewWidget(AdminFileWidget):
         output.append(super(AdminFileWidget, self).render(name, value, attrs)) # really for AdminFileWidget
         instance = getattr(value, 'instance', None)
         if instance is not None and value:
-            output.append('<br /><a target="_blank" href="%s"><img src="%s" alt="%s" /></a>' % \
+            output.append(u'<br /><a target="_blank" href="%s"><img src="%s" alt="%s" /></a>' % \
                 (instance.image.url, instance.thumb.url, instance.image))
         return mark_safe(u''.join(output))
